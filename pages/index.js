@@ -11,20 +11,27 @@ import Contents from '../components/Contents'
 
 
 export default function Home({users}) {
+  const isloggedin=false
   return (
     <>
     <MDBContainer fluid>
-    <Navbar/>
-
-      {/* <LoginCard /> */}
-        <MDBRow>
-          <MDBCol size='md-2' className='col-example'>
-                  <SideBar />
-          </MDBCol>
-          <MDBCol size='md' className='col-example'>
-              <Contents users={users}/>
-          </MDBCol>
-        </MDBRow>
+    <Navbar li={isloggedin}/>
+    {isloggedin?
+              <MDBRow>
+                <MDBCol size='md-2' className='col-example'>
+                        <SideBar />
+                </MDBCol>
+                <MDBCol size='md' className='col-example'>
+                    <Contents users={users}/>
+                </MDBCol>
+            </MDBRow>
+              :
+              <div className='outter' >
+                <div className='inner' >
+                        <LoginCard />
+                </div>
+              </div>}
+        
       {/* <ProjectsList projects={users}/> */}
     </MDBContainer>
     </>

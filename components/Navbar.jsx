@@ -16,7 +16,7 @@ import {
     MDBDropdownLink,
     MDBCollapse
   } from 'mdb-react-ui-kit';
-const Navbar = () => {
+const Navbar = ({li}) => {
     return (
         <div>
         <MDBNavbar expand='lg' light bgColor='light'>
@@ -37,41 +37,11 @@ const Navbar = () => {
                     <MDBNavbarLink active aria-current='page' href='#'>
                     Home
                     </MDBNavbarLink>
-                </MDBNavbarItem>
-                <MDBNavbarItem>
-                    <MDBNavbarLink href='#'>Link</MDBNavbarLink>
-                </MDBNavbarItem>
-    
-                <MDBNavbarItem>
-                    <MDBDropdown>
-                    <MDBDropdownToggle tag='a' className='nav-link'>
-                        Dropdown
-                    </MDBDropdownToggle>
-                    <MDBDropdownMenu>
-                        <MDBDropdownItem>
-                        <MDBDropdownLink>Action</MDBDropdownLink>
-                        </MDBDropdownItem>
-                        <MDBDropdownItem>
-                        <MDBDropdownLink>Another action</MDBDropdownLink>
-                        </MDBDropdownItem>
-                        <MDBDropdownItem>
-                        <MDBDropdownLink>Something else here</MDBDropdownLink>
-                        </MDBDropdownItem>
-                    </MDBDropdownMenu>
-                    </MDBDropdown>
-                </MDBNavbarItem>
-    
-                <MDBNavbarItem>
-                    <MDBNavbarLink disabled href='#' tabIndex={-1} aria-disabled='true'>
-                    Disabled
-                    </MDBNavbarLink>
-                </MDBNavbarItem>
+                </MDBNavbarItem>    
                 </MDBNavbarNav>
-    
-                <form className='d-flex input-group w-auto'>
-                <input type='search' className='form-control' placeholder='Type query' aria-label='Search' />
-                <MDBBtn color='primary'>Search</MDBBtn>
-                </form>
+               {li ? <MDBBtn color='danger' >logout</MDBBtn>
+                    : <MDBBtn color='primary'>Signup</MDBBtn>
+                }
             </MDBCollapse>
             </MDBContainer>
         </MDBNavbar>
