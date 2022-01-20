@@ -1,9 +1,8 @@
-import loginStyle from '../styles/Home.module.css'
-import { MDBInput ,MDBRow ,MDBBtn, MDBCol ,MDBContainer } from 'mdb-react-ui-kit';
-const LoginCard = () => {
+import { MDBContainer } from 'mdb-react-ui-kit';
+const LoginCard = ({setIsloggedIn}) => {
     return (
         <MDBContainer  className='w-75 mt-5' >
-                  <form>
+                  <form onSubmit={() => setIsloggedIn(true)}>
 
                         <h3>Log in</h3>
 
@@ -22,7 +21,7 @@ const LoginCard = () => {
 
                         <button type="submit" className="btn btn-lg btn-block mt-2" style={{backgroundColor:"#1BB581",color:"white"}}>Sign in</button>
                         
-                        </form>
+                    </form>
         </MDBContainer>
     )
 }

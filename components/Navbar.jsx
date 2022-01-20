@@ -8,13 +8,12 @@ import {
     MDBNavbarNav,
     MDBNavbarItem,
     MDBNavbarLink,
-    MDBBtn,
     MDBCollapse
   } from 'mdb-react-ui-kit';
 import Logo from '../public/Logo.png'
 
 
-const Navbar = ({li}) => {
+const Navbar = ({li,setIsloggedIn}) => {
     return (
         <div>
         <MDBNavbar expand='lg' light style={{backgroundColor:"#1BB581"}}>
@@ -41,8 +40,8 @@ const Navbar = ({li}) => {
                     </MDBNavbarLink>
                 </MDBNavbarItem>    
                 </MDBNavbarNav>
-               {!li ? <button className='btn btn-outline-light' >signin</button>
-                    : <button className='btn btn-outline-danger'>Logout</button>}
+               {!li ? <button className='btn btn-outline-light'  >signup</button>
+                    : <button className='btn btn-outline-danger' onClick={() => setIsloggedIn(false)}>Logout</button>}
             </MDBCollapse>
             </MDBContainer>
         </MDBNavbar>

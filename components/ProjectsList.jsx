@@ -5,7 +5,7 @@ const ProjectsList = ({projects}) => {
     return (
         <div>
             {projects.map(project =>(
-                <ProjectItem project={project}/>
+                <ProjectItem key={project.id} project={project}/>
             ))}
         </div>
     )

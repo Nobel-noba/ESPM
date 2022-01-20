@@ -1,10 +1,7 @@
-import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import LoginCard from '../components/LoginCard'
 import 'mdb-react-ui-kit/dist/css/mdb.min.css'
 import Navbar from '../components/Navbar'
-import ProjectsList from '../components/ProjectsList'
 import SideBar from '../components/SideBar'
 import { MDBContainer,MDBCol,MDBRow, } from 'mdb-react-ui-kit'
 import ProjectContents from '../components/ProjectContents'
@@ -17,13 +14,14 @@ import { useState } from 'react';
 
 export default function Home({users,project}) {
   const [activebar, setActivebar] = useState('project');
+  const [isloggedin, setIsloggedin] = useState(true);
 
-  const isloggedin=true
   return (
-    <>    <Navbar li={isloggedin}/>
-    <MDBContainer fluid style={{backgroundColor:"#D9ECD0",margin:"auto"}}>
+    <>    
+    <Navbar li={isloggedin} setIsloggedIn={setIsloggedin}/>
+    <MDBContainer fluid style={{margin:"auto"}}>
     {isloggedin?
-              <MDBRow >
+              <MDBRow style={{backgroundColor:"#D9ECD0"}} >
                 <MDBCol size='md-2' className='col-example'>
                         <SideBar active={activebar} setActive={setActivebar}/>
                 </MDBCol>
@@ -34,7 +32,7 @@ export default function Home({users,project}) {
               :
               <div className={styles.outter} >
                 <div className={styles.inner} >
-                        <LoginCard />
+                        <LoginCard setIsloggedIn={setIsloggedin} />
                 </div>
               </div>}
         

@@ -1,6 +1,5 @@
 
 import styles from '../styles/Home.module.css'
-import {MDBBtn} from 'mdb-react-ui-kit'
 
 const SideBar = ({active,setActive}) => {
   

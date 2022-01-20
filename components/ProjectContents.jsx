@@ -7,6 +7,7 @@ import {
   MDBTabsPane
 } from 'mdb-react-ui-kit';
 import ProjectsList from './ProjectsList';
+import CreateProject from './CreateProject';
 
 function ProjectContents({projects}) {
   const [basicActive, setBasicActive] = useState('tab1');
@@ -43,7 +44,9 @@ function ProjectContents({projects}) {
         <MDBTabsPane show={basicActive === 'tab1'}>
             <ProjectsList projects={projects}/>
         </MDBTabsPane>
-        <MDBTabsPane show={basicActive === 'tab2'}>Tab 2 content</MDBTabsPane>
+        <MDBTabsPane show={basicActive === 'tab2'}>
+            <CreateProject />
+        </MDBTabsPane>
         <MDBTabsPane show={basicActive === 'tab3'}>Tab 3 content</MDBTabsPane>
       </MDBTabsContent>
     </>
