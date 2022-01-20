@@ -14,3 +14,8 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.nav-tabs .nav-link:hover {
+  background-color: #aa0f0f;
+  border-color: transparent;
+}

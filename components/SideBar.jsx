@@ -1,12 +1,13 @@
 
-import style from '../styles/Home.module.css'
+import styles from '../styles/Home.module.css'
 import {MDBBtn} from 'mdb-react-ui-kit'
 
-const SideBar = () => {
+const SideBar = ({active,setActive}) => {
+  
   return (
-      <div className={style.Sidebar}>
-            <MDBBtn className="mb-2 mt-2" style={{width:"100%"}}>Projects</MDBBtn>
-            <MDBBtn className="mb-2" style={{width:"100%"}}>Tasks</MDBBtn>
+      <div className={styles.Sidebar}>
+            <button key="project" onClick={() => setActive("project")} className={active==="project" ? styles.active :styles.notactive} >Projects</button>
+            <button key="tasks" onClick={() => setActive("tasks")} className={active==="tasks" ? styles.active :styles.notactive}>Tasks</button>
       </div>
   )
 }

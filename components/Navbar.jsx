@@ -9,19 +9,21 @@ import {
     MDBNavbarItem,
     MDBNavbarLink,
     MDBBtn,
-    MDBDropdown,
-    MDBDropdownToggle,
-    MDBDropdownMenu,
-    MDBDropdownItem,
-    MDBDropdownLink,
     MDBCollapse
   } from 'mdb-react-ui-kit';
+import Logo from '../public/Logo.png'
+
+
 const Navbar = ({li}) => {
     return (
         <div>
-        <MDBNavbar expand='lg' light bgColor='light'>
-            <MDBContainer fluid>
-            <MDBNavbarBrand href='#'>Brand</MDBNavbarBrand>
+        <MDBNavbar expand='lg' light style={{backgroundColor:"#1BB581"}}>
+            <MDBContainer fluid >
+            <MDBNavbarBrand href='#'>
+                <MDBContainer className="rounded-circle" style={{backgroundColor:"#E9470B80"}}>
+                    <img src="Logo.png" style={{maxWidth:"25px"}} alt="eagle" />
+                </MDBContainer>
+            </MDBNavbarBrand>
     
             <MDBNavbarToggler
                 aria-controls='navbarSupportedContent'
@@ -34,14 +36,13 @@ const Navbar = ({li}) => {
             <MDBCollapse navbar >
                 <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
                 <MDBNavbarItem>
-                    <MDBNavbarLink active aria-current='page' href='#'>
-                    Home
+                    <MDBNavbarLink active aria-current='page' href='#' style={{fontWeight:"Bold"}}>
+                    Eagle Sight PM Tool
                     </MDBNavbarLink>
                 </MDBNavbarItem>    
                 </MDBNavbarNav>
-               {li ? <MDBBtn color='danger' >logout</MDBBtn>
-                    : <MDBBtn color='primary'>Signup</MDBBtn>
-                }
+               {!li ? <button className='btn btn-outline-light' >signin</button>
+                    : <button className='btn btn-outline-danger'>Logout</button>}
             </MDBCollapse>
             </MDBContainer>
         </MDBNavbar>

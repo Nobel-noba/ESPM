@@ -7,27 +7,33 @@ import Navbar from '../components/Navbar'
 import ProjectsList from '../components/ProjectsList'
 import SideBar from '../components/SideBar'
 import { MDBContainer,MDBCol,MDBRow, } from 'mdb-react-ui-kit'
-import Contents from '../components/Contents'
+import ProjectContents from '../components/ProjectContents'
+import TaskContents from '../components/TaskContents'
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'mdbreact/dist/css/mdb.css';
+import { useState } from 'react';
 
 
-export default function Home({users}) {
-  const isloggedin=false
+
+export default function Home({users,project}) {
+  const [activebar, setActivebar] = useState('project');
+
+  const isloggedin=true
   return (
-    <>
-    <MDBContainer fluid>
-    <Navbar li={isloggedin}/>
+    <>    <Navbar li={isloggedin}/>
+    <MDBContainer fluid style={{backgroundColor:"#D9ECD0",margin:"auto"}}>
     {isloggedin?
-              <MDBRow>
+              <MDBRow >
                 <MDBCol size='md-2' className='col-example'>
-                        <SideBar />
+                        <SideBar active={activebar} setActive={setActivebar}/>
                 </MDBCol>
-                <MDBCol size='md' className='col-example'>
-                    <Contents users={users}/>
+                <MDBCol  size='md' className='col-example'>
+                    {activebar==="project" ? <ProjectContents projects={project}/>: <TaskContents users={users}/>}
                 </MDBCol>
             </MDBRow>
               :
-              <div className='outter' >
-                <div className='inner' >
+              <div className={styles.outter} >
+                <div className={styles.inner} >
                         <LoginCard />
                 </div>
               </div>}
@@ -40,7 +46,9 @@ export default function Home({users}) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=10")
-  const users = await res.json()
-  return {props:{users}}
+  const res1 = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=11")
+  const res2 = await fetch("https://jsonplaceholder.typicode.com/users")
+  const project = await res1.json()
+  const users = await res2.json()
+  return {props:{users,project}}
 }
