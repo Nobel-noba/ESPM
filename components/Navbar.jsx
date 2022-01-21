@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link';
 import {
     MDBContainer,
     MDBNavbar,
@@ -11,6 +12,7 @@ import {
     MDBCollapse
   } from 'mdb-react-ui-kit';
 import Logo from '../public/Logo.png'
+import LogComp from './LogComp';
 
 
 const Navbar = ({li,setIsloggedIn}) => {
@@ -40,8 +42,7 @@ const Navbar = ({li,setIsloggedIn}) => {
                     </MDBNavbarLink>
                 </MDBNavbarItem>    
                 </MDBNavbarNav>
-               {!li ? <button className='btn btn-outline-light'  >signup</button>
-                    : <button className='btn btn-outline-danger' onClick={() => setIsloggedIn(false)}>Logout</button>}
+                    <LogComp li={li} setIsloggedIn={setIsloggedIn}/>
             </MDBCollapse>
             </MDBContainer>
         </MDBNavbar>

@@ -37,7 +37,7 @@ const CreateProject = () => {
                             <option value="Low">Low</option>
                         </select>
                     </div>
-                    <button type="submit" className="btn btn-lg btn-block mt-2" style={{backgroundColor:"#1BB581",color:"white"}}>Sign in</button>
+                    <button type="submit" className="btn btn-lg btn-block mt-2" style={{backgroundColor:"#1BB581",color:"white"}}>Create New Project</button>
 
                 </form>
                 </MDBCardBody>
