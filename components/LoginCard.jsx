@@ -15,7 +15,6 @@ const LoginCard = ({isloggedin,setIsloggedIn}) => {
 
     const handleLogin = async () => {
         localStorage.setItem("token",token)
-        console.log(username,password)
         await axios.post("https://jsonplaceholder.typicode.com/users",{
             username: username,
             password:password
@@ -23,7 +22,6 @@ const LoginCard = ({isloggedin,setIsloggedIn}) => {
             // setUserSession(responce.data.token,responce.data.user)
             localStorage.setItem("isloggedin",isloggedin)
             setIsloggedIn("loggedin")
-            console.warn("lela",isloggedin)
             router.push("./home")
         }).catch(error => {
             if(error.responce.status === 401 || error.responce.status === 400 ){

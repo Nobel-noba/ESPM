@@ -1,5 +1,5 @@
 import React ,{useState} from 'react'
-import { MDBCard, MDBCardBody } from 'mdb-react-ui-kit';
+import { MDBCard, MDBCardBody, MDBContainer } from 'mdb-react-ui-kit';
 
 const CreateProject = () => {
     const [priority,setPriorities] = useState("Low")
@@ -9,11 +9,12 @@ const CreateProject = () => {
     }
     return (
         <div>
+            <MDBContainer >
             <MDBCard className='mt-2'>
-                <MDBCardBody>
+                <MDBCardBody >
                 <form >
 
-                    <h3>Log in</h3>
+                    <h3>Create New Project</h3>
 
                     <div className="form-group">
                         <label>Name</label>
@@ -23,6 +24,11 @@ const CreateProject = () => {
                     <div className="form-group">
                         <label>description</label>
                         <input type="textarea" className="form-control form-control-lg mb-2" placeholder="Enter description" />
+                    </div>
+
+                    <div className="form-group">
+                        <label>Start Date</label>
+                        <input type="date" className="form-control form-control-lg mb-2" placeholder="Enter Start Date" />
                     </div>
 
                     <div className="form-group">
@@ -42,6 +48,7 @@ const CreateProject = () => {
                 </form>
                 </MDBCardBody>
             </MDBCard>
+            </MDBContainer>
         </div>
     )
 }

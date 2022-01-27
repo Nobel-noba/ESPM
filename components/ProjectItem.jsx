@@ -1,4 +1,5 @@
 import { MDBCard, MDBCardBody, MDBCardText, MDBCardTitle } from 'mdb-react-ui-kit'
+import Link from 'next/link'
 import React from 'react'
 
 const ProjectItem = ({project}) => {
@@ -20,7 +21,7 @@ const ProjectItem = ({project}) => {
                     <MDBCardText style={{position:"absolute",top:"5px",right:"80px"}}>priority:</MDBCardText>
                     <div>{project.title}</div>
                     <div>{project.body}</div>
-                    <button style={{float:"right"}} className='btn btn-primary'>See more</button>
+                    <Link href="/editproject"><button style={{float:"right"}} onClick={() => localStorage.setItem("Pid",project.id)}className='btn btn-primary'>See more</button></Link>
                 </MDBCardBody>
             </MDBCard>
         </div>
